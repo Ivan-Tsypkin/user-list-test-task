@@ -1,0 +1,32 @@
+.edit-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.edit-form__box {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  border: #F3F3F3 1px solid;
+  border-radius: 8px;
+}
+.edit-form__input-label {
+  margin-bottom: 3px;
+  font-size: 8px;
+}
+.edit-form__input {
+  width: 50%;
+  margin-bottom: 10px;
+}
+.edit-form__input_textarea {
+  width: 100%;
+}
+.edit-form__button {
+  margin-top: 10px;
+  align-self: flex-end;
+}
+.edit-form__button_active {
+  background-color: #52CF4F;
+}

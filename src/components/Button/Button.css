@@ -1,0 +1,19 @@
+.button {
+  padding: 5px 15px;
+  background-color: #4B51EF;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  transition: opacity 0.5s linear;
+  width: max-content;
+  height: 25px;
+}
+.button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.button_disabled {
+  cursor: alias;
+  pointer-events: none;
+  background-color: #AFAFAF;
+}

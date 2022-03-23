@@ -10,15 +10,17 @@ import User from "../../interfaces/User";
 
 const App: React.FC = () => {
   const [users, setUsers] = useState<Array<User>>([]); //  Данные пользователей
-  const [isLoading, setIsLoading] = useState(true);
-  const [isErrorLoading, setIsErrorLoading] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);    // Состояние загрузки страницы
+  const [isErrorLoading, setIsErrorLoading] = useState(false);  // Состояние ошибки загрузки данных
+  const [isEditing, setIsEditing] = useState(false);  //Состояние редактирования профиля пользователя
   let location = useLocation();
 
+  // Сброс редактирования при переходе на другую страницу
   useEffect(() => {
     setIsEditing(false);
   }, [location])
 
+  // Получение данных пользователей
   useEffect(() => {
     getUsers()
       .then(res => {
@@ -31,6 +33,7 @@ const App: React.FC = () => {
       });
   }, [])
 
+  // Сортировка списка пользователей по городу или по названию компании
   const sortUsers = (sortBy: string) => {
     switch(sortBy) {
       case "city":
@@ -42,6 +45,7 @@ const App: React.FC = () => {
     }
   }
 
+  // Функция отправки данных формы
   const handleFormSubmit = (value: Object) => {
     console.log(JSON.stringify(value));
     setIsEditing(false);

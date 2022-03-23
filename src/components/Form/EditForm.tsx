@@ -8,15 +8,17 @@ import EditFormProps from "../../interfaces/EditFormProps";
 
 const EditForm: React.FC<EditFormProps> = ({ users, isEditing, onFormSubmit }) => {
 
-  let { id = "" } = useParams();
-  const currentUser = users.find(user => user.id === +id);
+  let { id = "" } = useParams();  // Получаем id пользователя из параметра строки url
+  const currentUser = users.find(user => user.id === +id);  // Находим конкретного пользователя
 
+  // Используем хук обработчик формы
   const {values,
     setValues,
     handleChange,
     isFormValid,
   } = useFormValidation();
 
+  // Устанавливаем начальные значения полей формы
   useEffect(() => {
     if (currentUser) {
       setValues({
@@ -33,6 +35,7 @@ const EditForm: React.FC<EditFormProps> = ({ users, isEditing, onFormSubmit }) =
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // Обработчик отправки формы
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     onFormSubmit(values);

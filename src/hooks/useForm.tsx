@@ -5,10 +5,12 @@ interface InputValues {
 }
 
 export function useFormValidation() {
+  // Состояния формы: значения полей, ошибки, состояние валидации
   const [values, setValues] = useState<InputValues>({});
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
 
+  // Функция обработки полей формы
   const handleChange = (e: { target: HTMLInputElement | HTMLTextAreaElement }) => {
     const input = e.target;
     const value = input.value;
@@ -23,6 +25,7 @@ export function useFormValidation() {
 
   }
 
+  // Функция сброса полей формы, ошибок, состояния валидации
   const resetForm = useCallback(
     (newValues = {}, newErrors = {}, newIsValid = false) => {
       setValues(newValues);
